@@ -9,6 +9,9 @@ The proposed method addresses three coupled challenges in QFL:
 2. **Periodic QNN parameter geometry** through circular/torus-aware aggregation.
 3. **Unstable server movement** through self-consistent midpoint refinement.
 
+![image](https://github.com/shanikairoshi/Quantum-Federated-Aggregation-Advances-and-Open-Problems/blob/main/Figures/QFLReviewTimeLine_final.png)
+
+
 Unlike direct Euclidean aggregation, SCM-A2G-QFL does not simply average client parameters. Instead, it computes a QoS-weighted angular direction, evaluates the induced midpoint, recomputes client-supported directions from that midpoint, and accepts a global movement only when the movement becomes self-consistent.
 
 ---
