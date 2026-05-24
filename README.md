@@ -20,6 +20,8 @@ Unlike direct Euclidean aggregation, SCM-A2G-QFL does not simply average client 
 - **QoS-aware aggregation:** client influence is adjusted using fidelity, latency, instability, and data-size information.
 - **Torus-aware QNN aggregation:** QNN rotation parameters are treated as periodic angles rather than ordinary Euclidean vectors.
 - **Self-consistent midpoint update:** the server update is refined until its own midpoint supports the accepted movement.
+
+![image](https://github.com/shanikairoshi/Self-Consistent-Aggregation-/blob/main/SCM_midpointProcess.png)
 - **Controlled angular stress tests:** synthetic angular cases are used to demonstrate Euclidean seam failures and SCM stability.
 - **Domain-general evaluation:** experiments are conducted on medical and financial binary classification datasets.
 - **IBM hardware compatibility validation:** trained global QNN parameters can be evaluated on real IBM Quantum backends.
