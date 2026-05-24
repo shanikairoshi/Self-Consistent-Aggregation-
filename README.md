@@ -24,69 +24,7 @@ Unlike direct Euclidean aggregation, SCM-A2G-QFL does not simply average client 
 
 ---
 
-## Method Overview
 
-At communication round \(t\), each selected client receives the current global QNN parameters \(\boldsymbol{\theta}_t\), trains locally, and returns local parameters \(\boldsymbol{\theta}_{i,t}\). The server then computes QoS-aware weights:
-
-\[
-q_{i,t}
-=
-\frac{F_{i,t}^{\alpha}}
-{(\tau_{i,t}+\epsilon)^{\gamma}(V_{i,t}+\epsilon)^{\delta}},
-\]
-
-where \(F_{i,t}\) is fidelity or channel reliability, \(\tau_{i,t}\) is latency, and \(V_{i,t}\) is instability. The final weight is
-
-\[
-w_{i,t}
-=
-\frac{p_{i,t}q_{i,t}}
-{\sum_{j\in\mathcal{S}_t}p_{j,t}q_{j,t}}.
-\]
-
-The wrapped local client direction is
-
-\[
-\mathbf{v}_{i,t}
-=
-\operatorname{wrap}_{[-\pi,\pi)}
-(\boldsymbol{\theta}_{i,t}-\boldsymbol{\theta}_t).
-\]
-
-The initial movement is
-
-\[
-\mathbf{u}^{(0)}_t=\beta_t\sum_{i\in\mathcal{S}_t}w_{i,t}\mathbf{v}_{i,t}.
-\]
-
-SCM then refines the movement using the midpoint
-
-\[
-\mathbf{m}_t(\mathbf{u})=
-\operatorname{wrap}_{[-\pi,\pi)}
-\left(
-\boldsymbol{\theta}_t+\frac{1}{2}\mathbf{u}
-\right),
-\]
-
-and solves the fixed-point condition
-
-\[
-\mathbf{u}_t^\star
-=
-\beta_t\boldsymbol{\psi}_t(\mathbf{u}_t^\star).
-\]
-
-The next global model is
-
-\[
-\boldsymbol{\theta}_{t+1}
-=
-\operatorname{wrap}_{[-\pi,\pi)}
-(\boldsymbol{\theta}_t+\mathbf{u}_t^\star).
-\]
-
----
 
 ## Repository Structure
 
